@@ -15,7 +15,7 @@ const InnerContainer = styled.div`
 
 const StyledForm = styled(Form)`
   margin:auto;
-  width: 50%;
+  width: 25%;
 `;
 
 const StyledLoginContainer = styled.div`
