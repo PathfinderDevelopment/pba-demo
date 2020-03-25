@@ -1,13 +1,7 @@
 import React from 'react';
 import {Input, Button, Typography, Form} from 'antd';
-import styled from 'styled-components';
+import {StyledForm} from '../SharedStyledComponents';
 import {useHistory} from 'react-router-dom';
-
-const StyledForm = styled(Form)`
-  margin:auto;
-  width: 25%;
-  text-align: center;
-`;
 
 export const Pairing: React.FC = () => {
   const history = useHistory();

@@ -1,17 +1,12 @@
 import React from 'react';
 import {Form, Input, Button, Typography} from 'antd';
-import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
+import {StyledForm} from '../SharedStyledComponents';
 
 const layout = {
   align: 'middle',
   justify: 'center',
 };
-
-const StyledForm = styled(Form)`
-  margin:auto;
-  width: 25%;
-`;
 
 export const Login: React.FC = () => {
   const history = useHistory();
