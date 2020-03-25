@@ -1,14 +1,15 @@
 import React from 'react';
-import { Typography } from 'antd';
+import {Typography} from 'antd';
 import {
   Container,
   StyledGlucoseLevelContainer,
-  StyledBadge, StyledCaretUpFilled,
+  StyledBadge,
+  StyledCaretUpFilled,
   StyledGlucoseLevel,
   StyledGlucoseLevelLabel,
-  StyledLink
+  StyledLink,
 } from './Home.styled';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 export const Home: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ export const Home: React.FC = () => {
         <StyledGlucoseLevelLabel>mg/dL</StyledGlucoseLevelLabel>
       </StyledGlucoseLevelContainer>
 
-      <StyledLink to='/reports'>View Reports</StyledLink>
+      <StyledLink to='/report'>View Reports</StyledLink>
       <StyledLink to='/dosage'>Get Dosage</StyledLink>
       <StyledLink to='/calorieinput'>Input Calories</StyledLink>
       <StyledLink to='/feedback'>Give Feedback</StyledLink>
