@@ -3,12 +3,6 @@ import {CaretUpFilled} from '@ant-design/icons';
 import {Link} from 'react-router-dom';
 import {Badge} from 'antd';
 
-export const Container = styled.div`
-  margin: auto;
-  width: 25%;
-  text-align:center;
-`;
-
 export const StyledGlucoseLevelContainer = styled.div`
   position:relative;
   background-color: #2e6891;

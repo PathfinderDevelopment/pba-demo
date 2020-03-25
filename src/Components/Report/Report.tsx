@@ -1,14 +1,7 @@
 import React from 'react';
 import {Button} from 'antd';
-import {CaretLeftOutlined} from '@ant-design/icons';
-import styled from 'styled-components';
+import {Container, StyledBackButton} from '../SharedStyledComponents';
 import {Link} from 'react-router-dom';
-
-export const Container = styled.div`
-  margin: auto;
-  width: 25%;
-  text-align:center;
-`;
 
 export const Report:React.FC = () => {
   // TODO: Add graph once assets have been uploaded to Zeplin
@@ -19,7 +12,7 @@ export const Report:React.FC = () => {
   return (
     <Container>
       <Link to='home'>
-        <CaretLeftOutlined/>
+        <StyledBackButton/>
       </Link>
       <Button type='primary' onClick={shareData}>Share Data</Button>
     </Container>

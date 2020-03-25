@@ -1,7 +1,6 @@
 import React from 'react';
 import {Typography} from 'antd';
 import {
-  Container,
   StyledGlucoseLevelContainer,
   StyledBadge,
   StyledCaretUpFilled,
@@ -9,6 +8,7 @@ import {
   StyledGlucoseLevelLabel,
   StyledLink,
 } from './Home.styled';
+import {Container} from '../SharedStyledComponents';
 import {Link} from 'react-router-dom';
 
 export const Home: React.FC = () => {
