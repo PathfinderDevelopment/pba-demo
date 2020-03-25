@@ -1,7 +1,7 @@
 import React from 'react';
-import { Input, Button, Typography, Form } from 'antd';
+import {Input, Button, Typography, Form} from 'antd';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 const StyledForm = styled(Form)`
   margin:auto;

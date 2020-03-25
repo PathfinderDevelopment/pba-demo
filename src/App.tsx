@@ -7,6 +7,7 @@ import {Feedback} from './Components/Feedback/Feedback';
 import {CalorieInput} from './Components/CalorieInput/CalorieInput';
 import {Alerts} from './Components/Alerts/Alerts';
 import {Login} from './Components/Login/Login';
+import {Report} from './Components/Report/Report';
 import styled from 'styled-components';
 
 const InnerContainer = styled.div`
@@ -29,6 +30,7 @@ export const App: React.FC = () => {
         <Route exact path='/' component={Login} />
         <Route exact path='/pairdevice' component={Pairing} />
         <Route exact path='/home' component={Home} />
+        <Route exact path='/report' component={Report} />
         <Route exact path='/insulindosage' component={InsulinDosage} />
         <Route exact path='/feedback' component={Feedback} />
         <Route exact path='/calorieinput' component={CalorieInput} />
