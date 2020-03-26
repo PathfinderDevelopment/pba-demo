@@ -13,15 +13,6 @@ export const StyledGlucoseLevelContainer = styled.div`
   padding: 1.6rem 3.2rem;
 `;
 
-export const StyledGlucoseLevel = styled.h1`
-  margin-bottom: 0px;
-  color:white;
-`;
-
-export const StyledGlucoseLevelLabel = styled.p`
-  margin-bottom: 0px;
-`;
-
 export const StyledBadge = styled(Badge)`
   position: absolute;
   left: -3rem;

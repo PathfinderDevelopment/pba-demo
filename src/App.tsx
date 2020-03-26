@@ -31,7 +31,7 @@ export const App: React.FC = () => {
         <Route exact path='/pairdevice' component={Pairing} />
         <Route exact path='/home' component={Home} />
         <Route exact path='/report' component={Report} />
-        <Route exact path='/insulindosage' component={InsulinDosage} />
+        <Route exact path='/dosage' component={InsulinDosage} />
         <Route exact path='/feedback' component={Feedback} />
         <Route exact path='/calorieinput' component={CalorieInput} />
         <Route exact path='/alerts' component={Alerts} />
