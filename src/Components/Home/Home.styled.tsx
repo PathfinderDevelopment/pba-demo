@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import {CaretUpFilled} from '@ant-design/icons';
 import {Link} from 'react-router-dom';
-import {Badge} from 'antd';
 
 export const StyledGlucoseLevelContainer = styled.div`
   position:relative;
@@ -13,11 +12,16 @@ export const StyledGlucoseLevelContainer = styled.div`
   padding: 1.6rem 3.2rem;
 `;
 
-export const StyledBadge = styled(Badge)`
+export const AlertNotification = styled.div`
   position: absolute;
-  left: -3rem;
+  left: -4rem;
   top: 0;
+  background-color: #41912A;
   transform: scale(1.5);
+  color: white;
+  border-radius:200px;
+  width: 2.4rem;
+  height: 2.4rem;
 `;
 
 export const StyledLink = styled(Link)`

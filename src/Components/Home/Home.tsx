@@ -2,7 +2,7 @@ import React from 'react';
 import {Typography} from 'antd';
 import {
   StyledGlucoseLevelContainer,
-  StyledBadge,
+  AlertNotification,
   StyledCaretUpFilled,
   StyledLink,
 } from './Home.styled';
@@ -11,6 +11,7 @@ import {
   StyledCardTitle,
   StyledCardSubtitle} from '../SharedStyledComponents';
 import {Link} from 'react-router-dom';
+import {BellFilled} from '@ant-design/icons';
 
 export const Home: React.FC = () => {
   return (
@@ -19,8 +20,9 @@ export const Home: React.FC = () => {
 
       <StyledGlucoseLevelContainer>
         <Link to='alerts'>
-          <StyledBadge count={1} style={{backgroundColor: '#41912A'}}>
-          </StyledBadge>
+          <AlertNotification style={{backgroundColor: '#41912A'}}>
+            <BellFilled/>
+          </AlertNotification>
         </Link>
         <StyledCaretUpFilled />
         <StyledCardTitle>120</StyledCardTitle>
