@@ -9,7 +9,6 @@ export const StyledForm = styled(Form)`
   position: relative;
 `;
 
-
 export const StyledBackButton = styled(CaretLeftOutlined)`
     position: absolute;
     left:-2.5rem;
@@ -22,4 +21,13 @@ export const Container = styled.div`
   width: 25%;
   text-align:center;
   position: relative;
+`;
+
+export const StyledCardTitle = styled.h1`
+  margin-bottom: 0px;
+  color:white;
+`;
+
+export const StyledCardSubtitle = styled.p`
+  margin-bottom: 0px;
 `;

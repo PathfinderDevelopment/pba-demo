@@ -4,11 +4,12 @@ import {
   StyledGlucoseLevelContainer,
   StyledBadge,
   StyledCaretUpFilled,
-  StyledGlucoseLevel,
-  StyledGlucoseLevelLabel,
   StyledLink,
 } from './Home.styled';
-import {Container} from '../SharedStyledComponents';
+import {
+  Container,
+  StyledCardTitle,
+  StyledCardSubtitle} from '../SharedStyledComponents';
 import {Link} from 'react-router-dom';
 
 export const Home: React.FC = () => {
@@ -22,8 +23,8 @@ export const Home: React.FC = () => {
           </StyledBadge>
         </Link>
         <StyledCaretUpFilled />
-        <StyledGlucoseLevel>120</StyledGlucoseLevel>
-        <StyledGlucoseLevelLabel>mg/dL</StyledGlucoseLevelLabel>
+        <StyledCardTitle>120</StyledCardTitle>
+        <StyledCardSubtitle>mg/dL</StyledCardSubtitle>
       </StyledGlucoseLevelContainer>
 
       <StyledLink to='/report'>View Reports</StyledLink>
