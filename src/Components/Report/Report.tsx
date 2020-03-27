@@ -1,10 +1,12 @@
 import React from 'react';
 import {Button} from 'antd';
 import {Container, StyledBackButton} from '../SharedStyledComponents';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 export const Report:React.FC = () => {
+  const history = useHistory();
   const shareData = ():void => {
+    history.push('/sharedata')
     // TODO: Track data sharing event.
   };
 

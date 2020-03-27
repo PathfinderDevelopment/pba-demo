@@ -42,4 +42,6 @@ html {
 
 .ant-btn-primary {
   background-color: #3f912a;
+  border-color: #3f912a;
+  border-radius: 35px;
 }
