@@ -9,6 +9,7 @@ import {Alerts} from './Components/Alerts/Alerts';
 import {Login} from './Components/Login/Login';
 import {Report} from './Components/Report/Report';
 import {EmailShare} from './Components/Report/EmailShare/EmailShare';
+import {Success} from './Components/Success/Success';
 import Logo from './images/orthogonal-logo-stacked-white-onblack@2x.png';
 import styled from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
@@ -42,6 +43,7 @@ export const App: React.FC = () => {
           <Route exact path='/feedback' component={Feedback} />
           <Route exact path='/calorieinput' component={CalorieInput} />
           <Route exact path='/alerts' component={Alerts} />
+          <Route exact path='/success' component={Success} />
         </InnerContainer>
       </StyledContainer>
     </BrowserRouter>

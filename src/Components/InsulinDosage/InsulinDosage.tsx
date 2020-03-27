@@ -6,7 +6,7 @@ import {
   StyledCardSubtitle} from '../SharedStyledComponents';
 import {Typography, Form, Button, Input} from 'antd';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 const InsulinDosageSuggestion = styled.div`
   background-color: #2A6891;
@@ -15,10 +15,12 @@ const InsulinDosageSuggestion = styled.div`
 `;
 
 export const InsulinDosage:React.FC = () => {
+  const history = useHistory();
+
   const onFinish = (values: any) => {
     console.log('Success:', values);
     // TODO: Track feedback input event
-    // TODO: Route to success screen
+    history.push('success?of=dosage');
   };
 
   const onFinishFailed = (errorInfo: any) => {
