@@ -11,8 +11,8 @@ export const StyledForm = styled(Form)`
 
 export const StyledBackButton = styled(CaretLeftOutlined)`
     position: absolute;
-    left:-2.5rem;
-    top:.75rem;
+    left: -2.5rem;
+    top: .75rem;
     font-size:2.5rem;
 `;
 
