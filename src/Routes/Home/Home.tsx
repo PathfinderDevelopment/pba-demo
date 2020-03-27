@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {Typography} from 'antd';
 import {
   StyledGlucoseLevelContainer,
@@ -7,15 +7,14 @@ import {
   StyledLink,
 } from './Home.styled';
 import {
-  Container,
   StyledCardTitle,
-  StyledCardSubtitle} from '../SharedStyledComponents';
+  StyledCardSubtitle} from '../../Components/SharedStyledComponents';
 import {Link} from 'react-router-dom';
 import {BellFilled} from '@ant-design/icons';
 
 export const Home: React.FC = () => {
   return (
-    <Container>
+    <Fragment>
       <Typography.Title>Blood Glucose</Typography.Title>
 
       <StyledGlucoseLevelContainer>
@@ -33,5 +32,5 @@ export const Home: React.FC = () => {
       <StyledLink to='/dosage'>Get Dosage</StyledLink>
       <StyledLink to='/calorieinput'>Input Calories</StyledLink>
       <StyledLink to='/feedback'>Give Feedback</StyledLink>
-    </Container>);
+    </Fragment>);
 };

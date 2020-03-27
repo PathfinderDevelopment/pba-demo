@@ -1,7 +1,6 @@
 import React from 'react';
 import {Form, Input, Button, Typography} from 'antd';
 import {useHistory} from 'react-router-dom';
-import {StyledForm} from '../SharedStyledComponents';
 
 const layout = {
   align: 'middle',
@@ -23,7 +22,7 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <StyledForm
+    <Form
       {...layout}
       name="login"
       onFinish={onFinish}
@@ -49,6 +48,6 @@ export const Login: React.FC = () => {
           Submit
         </Button>
       </Form.Item>
-    </StyledForm>
+    </Form>
   );
 };

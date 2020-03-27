@@ -1,17 +1,23 @@
 import React from 'react';
 import {
-  Container,
-  StyledBackButton,
   StyledCardTitle,
-  StyledCardSubtitle} from '../SharedStyledComponents';
+  StyledCardSubtitle} from '../../Components/SharedStyledComponents';
 import {Typography, Form, Button, Input} from 'antd';
 import styled from 'styled-components';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 const InsulinDosageSuggestion = styled.div`
   background-color: #2A6891;
   color: white;
   padding: 1.6rem;
+`;
+
+const StyledFormItem = styled(Form.Item)`
+  margin-top: 16px;
+  & label {
+    display: block;
+    text-align:center;
+  }
 `;
 
 export const InsulinDosage:React.FC = () => {
@@ -28,10 +34,7 @@ export const InsulinDosage:React.FC = () => {
   };
 
   return (
-    <Container>
-      <Link to='home'>
-        <StyledBackButton/>
-      </Link>
+    <div>
       <Typography.Title level={2}>
         Recommended <br/> Insulin Dosage
       </Typography.Title>
@@ -45,12 +48,12 @@ export const InsulinDosage:React.FC = () => {
         onFinishFailed={onFinishFailed}
         layout='vertical'>
 
-        <Form.Item
+        <StyledFormItem
           label="Amount of insulin you plan to inject:"
           name="tired"
         >
           <Input placeholder='Insulin (U)' />
-        </Form.Item>
+        </StyledFormItem>
 
         <Form.Item>
           <Button type="primary" htmlType="submit" block>
@@ -58,6 +61,6 @@ export const InsulinDosage:React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-    </Container>
+    </div>
   );
 };

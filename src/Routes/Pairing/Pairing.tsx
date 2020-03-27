@@ -1,6 +1,5 @@
 import React from 'react';
 import {Input, Button, Typography, Form} from 'antd';
-import {StyledForm} from '../SharedStyledComponents';
 import {useHistory} from 'react-router-dom';
 
 export const Pairing: React.FC = () => {
@@ -12,7 +11,7 @@ export const Pairing: React.FC = () => {
   };
 
   return (
-    <StyledForm
+    <Form
       name="pairing"
       onFinish={onFinish}>
       <Typography.Title level={3}>
@@ -27,6 +26,6 @@ export const Pairing: React.FC = () => {
           Pair
         </Button>
       </Form.Item>
-    </StyledForm>
+    </Form>
   );
 };

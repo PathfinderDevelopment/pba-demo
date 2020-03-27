@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container, StyledBackButton} from '../SharedStyledComponents';
 import {useHistory, useLocation} from 'react-router';
 import Checkmark from '../../images/check-mark.png';
 import {Typography, Button} from 'antd';
@@ -35,7 +34,7 @@ export const Success:React.FC = () => {
       hideGoBack = true;
       break;
     case 'dosage':
-      messageText = 'Your dosage has been saved';
+      messageText = 'Your Actual Insulin Dosage has been saved';
       break;
     default:
       messageText = 'We\'re not sure what you did.';
@@ -50,12 +49,8 @@ export const Success:React.FC = () => {
   };
 
   return (
-    <Container>
-      {hideGoBack ? null :
-      <StyledBackButton
-        style={{color: '#d8d8d8', cursor: 'pointer'}}
-        onClick={back}/>}
-      <img src={Checkmark} style={{marginBottom: '24px'}} alt='green checkmark'/>
+    <div>
+      <img src={Checkmark} style={{marginBottom: '24px'}} alt='green check'/>
       <Typography.Title level={3}>{messageText}</Typography.Title>
       <ButtonsContainer>
         {hideGoBack ? '' : <Button type='primary' onClick={back}>Back</Button>}
@@ -63,6 +58,6 @@ export const Success:React.FC = () => {
           <Button type='primary'>Home</Button>
         </Link>
       </ButtonsContainer>
-    </Container>
+    </div>
   );
 };
