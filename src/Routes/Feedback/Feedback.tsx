@@ -1,7 +1,6 @@
 import React from 'react';
-import {StyledForm, StyledBackButton} from '../SharedStyledComponents';
 import {Form, Button, Typography, Input} from 'antd';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 export const Feedback: React.FC = () => {
   const history = useHistory();
@@ -18,16 +17,12 @@ export const Feedback: React.FC = () => {
   };
 
   return (
-    <StyledForm
+    <Form
       name="feedbackInput"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       layout='vertical'
     >
-      <Link to='home'>
-        <StyledBackButton />
-      </Link>
-
       <Typography.Title level={2}>Input Calories</Typography.Title>
       <Form.Item
         label="Do you feel tired?"
@@ -59,6 +54,6 @@ export const Feedback: React.FC = () => {
                     Submit
         </Button>
       </Form.Item>
-    </StyledForm>
+    </Form>
   );
 };

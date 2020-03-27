@@ -1,7 +1,6 @@
 import React from 'react';
 import {Button} from 'antd';
-import {Container, StyledBackButton} from '../SharedStyledComponents';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 export const Report:React.FC = () => {
   const history = useHistory();
@@ -11,11 +10,8 @@ export const Report:React.FC = () => {
   };
 
   return (
-    <Container style={{height: '500px', width: '25%'}}>
-      <Link to='home'>
-        <StyledBackButton/>
-      </Link>
+    <div style={{height: '500px', width: '25%'}}>
       <Button type='primary' onClick={shareData}>Share Data</Button>
-    </Container>
+    </div>
   );
 };
