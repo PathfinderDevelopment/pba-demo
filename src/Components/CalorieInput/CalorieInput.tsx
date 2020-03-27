@@ -1,12 +1,14 @@
 import React from 'react';
 import {Form, Input, Button, Typography} from 'antd';
 import {StyledForm, StyledBackButton} from '../SharedStyledComponents';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 export const CalorieInput: React.FC = () => {
+  const history = useHistory();
   const onFinish = (values: any) => {
     console.log('Success:', values);
     // TODO: Track calorie input event here
+    history.push('/success?of=calorieEntry');
   };
 
   const onFinishFailed = (errorInfo: any) => {

@@ -6,7 +6,7 @@ import {Link, useHistory} from 'react-router-dom';
 export const Report:React.FC = () => {
   const history = useHistory();
   const shareData = ():void => {
-    history.push('/sharedata')
+    history.push('/sharedata');
     // TODO: Track data sharing event.
   };
 

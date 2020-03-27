@@ -1,13 +1,16 @@
 import React from 'react';
 import {StyledForm, StyledBackButton} from '../SharedStyledComponents';
 import {Form, Button, Typography, Input} from 'antd';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 
 export const Feedback: React.FC = () => {
+  const history = useHistory();
+
   const onFinish = (values: any) => {
     console.log('Success:', values);
     // TODO: Track feedback input event
-    // TODO: Route to success screen
+
+    history.push('/success?of=feedback');
   };
 
   const onFinishFailed = (errorInfo: any) => {

@@ -7,7 +7,7 @@ export const Pairing: React.FC = () => {
   const history = useHistory();
 
   const onFinish = (values: any) => {
-    history.push('/home');
+    history.push('/success?of=pairing');
     // TODO: Track Login Event Here
   };
 

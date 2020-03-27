@@ -27,8 +27,6 @@ label {
   color: #f9f8f8 !important;
 }
 
-
-
 *,
 *::before,
 *::after {
@@ -44,4 +42,18 @@ html {
   background-color: #3f912a;
   border-color: #3f912a;
   border-radius: 35px;
+}
+
+.ant-btn-primary:hover {
+  background-color: #1f4814;
+  border-color: #1f4814;
+}
+
+.ant-btn-primary:focus {
+  background-color: #4EAB44;
+  border-color: #4EAB44;
+}
+
+a {
+  color: #d8d8d8;
 }
