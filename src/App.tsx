@@ -16,6 +16,8 @@ import styled from 'styled-components';
 import {BrowserRouter} from 'react-router-dom';
 import {Container} from './Components/SharedStyledComponents';
 import {BackButton} from './Components/BackButton/BackButton';
+import {MixpanelProvider} from 'react-mixpanel-browser';
+
 
 const InnerContainer = styled.div`
   display:table-cell;
@@ -30,45 +32,46 @@ const StyledContainer = styled.div`
   height:100%;
 `;
 
-
 export const App: React.FC = () => {
   return (
-    <BrowserRouter>
-      <StyledContainer>
-        <InnerContainer>
-          <Container>
-            <img src={Logo} style={{marginBottom: '32px'}}
-              alt='Orthogonal Logo'/>
-            <Route path={[
-              '/home',
-              '/report',
-              '/sharedata',
-              '/dosage',
-              '/feedback',
-              '/calorieinput',
-              '/alerts',
-              '/success']} component={NavMenu} />
-            <Route exact path={[
-              '/report',
-              '/sharedata',
-              '/dosage',
-              '/feedback',
-              '/calorieinput',
-              '/alerts']} component={BackButton} />
-            <Route exact path='/' component={Login} />
-            <Route exact path='/pairdevice' component={Pairing} />
-            <Route exact path='/home' component={Home} />
-            <Route exact path='/report' component={Report} />
-            <Route exact path='/sharedata' component={EmailShare} />
-            <Route exact path='/dosage' component={InsulinDosage} />
-            <Route exact path='/feedback' component={Feedback} />
-            <Route exact path='/calorieinput' component={CalorieInput} />
-            <Route exact path='/alerts' component={Alerts} />
-            <Route exact path='/success' component={Success} />
-          </Container>
+    <MixpanelProvider>
+      <BrowserRouter>
+        <StyledContainer>
+          <InnerContainer>
+            <Container>
+              <img src={Logo} style={{marginBottom: '32px'}}
+                alt='Orthogonal Logo'/>
+              <Route path={[
+                '/home',
+                '/report',
+                '/sharedata',
+                '/dosage',
+                '/feedback',
+                '/calorieinput',
+                '/alerts',
+                '/success']} component={NavMenu} />
+              <Route exact path={[
+                '/report',
+                '/sharedata',
+                '/dosage',
+                '/feedback',
+                '/calorieinput',
+                '/alerts']} component={BackButton} />
+              <Route exact path='/' component={Login} />
+              <Route exact path='/pairdevice' component={Pairing} />
+              <Route exact path='/home' component={Home} />
+              <Route exact path='/report' component={Report} />
+              <Route exact path='/sharedata' component={EmailShare} />
+              <Route exact path='/dosage' component={InsulinDosage} />
+              <Route exact path='/feedback' component={Feedback} />
+              <Route exact path='/calorieinput' component={CalorieInput} />
+              <Route exact path='/alerts' component={Alerts} />
+              <Route exact path='/success' component={Success} />
+            </Container>
 
-        </InnerContainer>
-      </StyledContainer>
-    </BrowserRouter>
+          </InnerContainer>
+        </StyledContainer>
+      </BrowserRouter>
+    </MixpanelProvider>
   );
 };
