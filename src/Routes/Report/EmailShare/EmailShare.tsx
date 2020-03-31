@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Form, Typography, Button, Input} from 'antd';
 import {useHistory} from 'react-router';
+import {useMixpanel} from 'react-mixpanel-browser';
 
 export const EmailShare:React.FC = () => {
   const history = useHistory();
+  const mixpanel = useMixpanel();
+
+  useEffect(() => {
+    mixpanel.track('Page View', {pageName: 'Email Data'});
+  }, [mixpanel]);
 
   const onFinish = (values: any) => {
     history.push('/success?of=share');
-    // TODO: Track Login Event Here
   };
 
   return (

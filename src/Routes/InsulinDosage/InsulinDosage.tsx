@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   StyledCardTitle,
   StyledCardSubtitle} from '../../Components/SharedStyledComponents';
 import {Typography, Form, Button, Input} from 'antd';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
+import {useMixpanel} from 'react-mixpanel-browser';
 
 const InsulinDosageSuggestion = styled.div`
   background-color: #2A6891;
@@ -22,6 +23,11 @@ const StyledFormItem = styled(Form.Item)`
 
 export const InsulinDosage:React.FC = () => {
   const history = useHistory();
+  const mixpanel = useMixpanel();
+
+  useEffect(() => {
+    mixpanel.track('Page View', {pageName: 'Insulin Dosage'});
+  }, [mixpanel]);
 
   const onFinish = (values: any) => {
     console.log('Success:', values);

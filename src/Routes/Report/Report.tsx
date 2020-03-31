@@ -1,16 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Button, Typography} from 'antd';
 import {useHistory} from 'react-router-dom';
-import {LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer} from 'recharts';
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  ResponsiveContainer} from 'recharts';
+import {useMixpanel} from 'react-mixpanel-browser';
 
 export const Report:React.FC = () => {
   const history = useHistory();
+  const mixpanel = useMixpanel();
+
+  useEffect(() => {
+    mixpanel.track('Page View', {pageName: 'Report'});
+  }, [mixpanel]);
+
   const shareData = ():void => {
     history.push('/sharedata');
-    // TODO: Track data sharing event.
   };
 
-  const data = [{time: '10am', d: 120}, {time: '11am', d: 180}, {time: '12pm', d: 120}, {time: '1pm', d: 80}];
+  const data = [
+    {time: '10am', d: 120},
+    {time: '11am', d: 180},
+    {time: '12pm', d: 120},
+    {time: '1pm', d: 80},
+  ];
 
   return (
     <div style={{width: '100%', height: '400px'}}>

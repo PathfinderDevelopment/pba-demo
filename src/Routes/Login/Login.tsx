@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Form, Input, Button, Typography} from 'antd';
 import {useHistory} from 'react-router-dom';
 import {useMixpanel} from 'react-mixpanel-browser';
+import {AuthContext} from '../../auth/Authentication';
 
 
 const layout = {
@@ -12,14 +13,21 @@ const layout = {
 export const Login: React.FC = () => {
   const history = useHistory();
   const mixpanel = useMixpanel();
+  const {setAuthState} = useContext(AuthContext);
+
+  useEffect(() => {
+    mixpanel.track('Page View', {pageName: 'Log In'});
+  }, [mixpanel]);
 
   // The type that is returned by these functions from antd's library is not
   // importable, so I'm using the any type.
   const onFinish = (values: any) => {
     history.push('/pairdevice');
-    console.log(mixpanel.config);
+    setAuthState(values.username);
     mixpanel.register({'username': values.username});
-    // TODO: Track Login Event Here
+    mixpanel.people.set({'$first_name': values.username});
+    mixpanel.identify();
+    mixpanel.track('Log In');
   };
 
   const onFinishFailed = (errorInfo: any) => {

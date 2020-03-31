@@ -5,14 +5,15 @@ import {
   AlertText,
   StyledCheckBox} from './AlertItem.styled';
 import {BellFilled} from '@ant-design/icons';
-
+import {useMixpanel} from 'react-mixpanel-browser';
 
 export const AlertItem = () => {
+  const mixpanel = useMixpanel();
   const [notificationRead, setNotficationRead] = useState<boolean>(false);
 
   const alertClickHandler = () => {
     setNotficationRead(!notificationRead);
-    // TODO: Track alert read event here.
+    mixpanel.track('Notification Read');
   };
 
   return (

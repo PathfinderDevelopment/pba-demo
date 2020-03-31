@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Input, Button, Typography, Form} from 'antd';
 import {useHistory} from 'react-router-dom';
+import {useMixpanel} from 'react-mixpanel-browser';
 
 export const Pairing: React.FC = () => {
   const history = useHistory();
+  const mixpanel = useMixpanel();
+
+  useEffect(() => {
+    mixpanel.track('Page View', {pageName: 'Pairing'});
+  }, [mixpanel]);
 
   const onFinish = (values: any) => {
+    mixpanel.register({deviceSerialNo: values.serialNumber});
     history.push('/success?of=pairing');
-    // TODO: Track Login Event Here
   };
 
   return (
