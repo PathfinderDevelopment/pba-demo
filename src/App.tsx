@@ -13,7 +13,7 @@ import {Success} from './Routes/Success/Success';
 import {NavMenu} from './Components/NavMenu/NavMenu';
 import Logo from './images/orthogonal-logo-stacked-white-onblack@2x.png';
 import styled from 'styled-components';
-import {BrowserRouter} from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 import {Container} from './Components/SharedStyledComponents';
 import {BackButton} from './Components/BackButton/BackButton';
 import {AuthHOC} from './auth/AuthHOC';
@@ -40,7 +40,7 @@ export const App: React.FC = () => {
   return (
     <AuthContext.Provider value={value}>
       <MixpanelProvider>
-        <BrowserRouter>
+        <HashRouter>
           <StyledContainer>
             <InnerContainer>
               <Container>
@@ -77,7 +77,7 @@ export const App: React.FC = () => {
               </Container>
             </InnerContainer>
           </StyledContainer>
-        </BrowserRouter>
+        </HashRouter>
       </MixpanelProvider>
     </AuthContext.Provider>
   );
