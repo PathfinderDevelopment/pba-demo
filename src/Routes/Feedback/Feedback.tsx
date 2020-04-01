@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import {Form, Button, Typography, Input} from 'antd';
+import React, {useEffect} from 'react';
+import {Form, Button, Typography, Select} from 'antd';
 import {useHistory} from 'react-router-dom';
 import {useMixpanel} from 'react-mixpanel-browser';
 
 export const Feedback: React.FC = () => {
-
   const history = useHistory();
   const mixpanel = useMixpanel();
 
@@ -33,25 +32,39 @@ export const Feedback: React.FC = () => {
         label="Do you feel tired?"
         name="tired"
       >
-        <Input placeholder='Calories' />
+        <Select>
+          <Select.Option value="Yes">Yes</Select.Option>
+          <Select.Option value="No">No</Select.Option>
+        </Select>
       </Form.Item>
       <Form.Item
         label="Do you exercise?"
         name="exercise"
       >
-        <Input placeholder='Calories' />
+        <Select>
+          <Select.Option value="Yes">Often</Select.Option>
+          <Select.Option value="No">Seldom</Select.Option>
+          <Select.Option value="No">Never</Select.Option>
+        </Select>
+
       </Form.Item>
       <Form.Item
         label="Is your BG mostly in range?"
         name="bgInRange"
       >
-        <Input placeholder='Calories' />
+        <Select>
+          <Select.Option value="Yes">Yes</Select.Option>
+          <Select.Option value="No">No</Select.Option>
+        </Select>
       </Form.Item>
       <Form.Item
         label="Do you find insulin recommendations helpful?"
         name="insulinRecommendationHelpful"
       >
-        <Input placeholder='Calories' />
+        <Select>
+          <Select.Option value="Yes">Yes</Select.Option>
+          <Select.Option value="No">No</Select.Option>
+        </Select>
       </Form.Item>
 
       <Form.Item>
