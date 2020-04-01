@@ -2,7 +2,7 @@
   "name": "pba-demo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://PathfinderDevelopment.github.io/orthogonal-pba-demo",
+  "homepage": "https://pathfinderdevelopment.github.io/pba-demo/",
   "dependencies": {
     "@ant-design/icons": "^4.0.3",
     "@testing-library/jest-dom": "^4.2.4",
