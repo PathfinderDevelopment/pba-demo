@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import {Typography} from 'antd';
 import {
   StyledGlucoseLevelContainer,
@@ -11,8 +11,15 @@ import {
   StyledCardSubtitle} from '../../Components/SharedStyledComponents';
 import {Link} from 'react-router-dom';
 import {BellFilled} from '@ant-design/icons';
+import {useMixpanel} from 'react-mixpanel-browser';
 
 export const Home: React.FC = () => {
+  const mixpanel = useMixpanel();
+
+  useEffect(() => {
+    mixpanel.track('Page View', {pageName: 'Home'});
+  }, [mixpanel]);
+
   return (
     <Fragment>
       <Typography.Title>Blood Glucose</Typography.Title>

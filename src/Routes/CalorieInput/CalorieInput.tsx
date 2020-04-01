@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Form, Input, Button, Typography} from 'antd';
 import {useHistory} from 'react-router-dom';
+import {useMixpanel} from 'react-mixpanel-browser';
 
 export const CalorieInput: React.FC = () => {
   const history = useHistory();
+  const mixpanel = useMixpanel();
+
+  useEffect(() => {
+    mixpanel.track('Page View', {pageName: 'Calorie Input'});
+  }, [mixpanel]);
+
   const onFinish = (values: any) => {
     console.log('Success:', values);
     // TODO: Track calorie input event here
