@@ -44,26 +44,35 @@ export const App: React.FC = () => {
           <StyledContainer>
             <InnerContainer>
               <Container>
-                <img src={Logo} style={{marginBottom: '32px'}}
-                  alt='Orthogonal Logo'/>
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                  <AuthHOC>
+                    <Route exact path={[
+                      '/report',
+                      '/sharedata',
+                      '/dosage',
+                      '/feedback',
+                      '/calorieinput',
+                      '/alerts']} component={BackButton} />
+                  </AuthHOC>
+
+                  <img src={Logo} style={{margin: '0 auto 32px'}}
+                    alt='Orthogonal Logo' />
+                  <AuthHOC>
+                    <Route path={[
+                      '/home',
+                      '/report',
+                      '/sharedata',
+                      '/dosage',
+                      '/feedback',
+                      '/calorieinput',
+                      '/alerts',
+                      '/success']} component={NavMenu} />
+                  </AuthHOC>
+                </div>
+
                 <Route exact path='/' component={Login} />
                 <AuthHOC>
-                  <Route path={[
-                    '/home',
-                    '/report',
-                    '/sharedata',
-                    '/dosage',
-                    '/feedback',
-                    '/calorieinput',
-                    '/alerts',
-                    '/success']} component={NavMenu} />
-                  <Route exact path={[
-                    '/report',
-                    '/sharedata',
-                    '/dosage',
-                    '/feedback',
-                    '/calorieinput',
-                    '/alerts']} component={BackButton} />
+
                   <Route exact path='/pairdevice' component={Pairing} />
                   <Route exact path='/home' component={Home} />
                   <Route exact path='/report' component={Report} />

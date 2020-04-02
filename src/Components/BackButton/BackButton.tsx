@@ -5,9 +5,6 @@ import {CaretLeftOutlined} from '@ant-design/icons';
 
 
 const StyledBackButton = styled(CaretLeftOutlined)`
-    position: absolute;
-    left: -2.5rem;
-    top: .75rem;
     font-size:2.5rem;
 `;
 

@@ -14,7 +14,7 @@ const StyledMenu = styled(Menu)`
 export const NavMenu = () => {
   return (
     <StyledMenu theme='dark'>
-      <Menu.SubMenu title={<MenuOutlined />}>
+      <Menu.SubMenu title={<MenuOutlined style={{fontSize: '2.5rem'}} />}>
         <Menu.Item><Link to='home'>Home</Link></Menu.Item>
         <Menu.Item><Link to='report'>Reports</Link></Menu.Item>
         <Menu.Item><Link to='dosage'>Dosage</Link></Menu.Item>
