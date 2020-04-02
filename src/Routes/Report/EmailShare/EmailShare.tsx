@@ -8,7 +8,7 @@ export const EmailShare:React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Email Data'});
+    mixpanel.track('Viewed Email Data Screen');
   }, [mixpanel]);
 
   const onFinish = (values: any) => {

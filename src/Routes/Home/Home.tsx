@@ -17,7 +17,7 @@ export const Home: React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Home'});
+    mixpanel.track('Viewed Homepage/Blood Glucose Level');
   }, [mixpanel]);
 
   return (

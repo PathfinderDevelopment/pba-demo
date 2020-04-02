@@ -13,7 +13,7 @@ export const Alerts: React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Alerts'});
+    mixpanel.track('Viewed Alerts');
   }, [mixpanel]);
 
   return (

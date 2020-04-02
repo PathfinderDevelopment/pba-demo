@@ -2,7 +2,9 @@ import React, {useContext, useEffect} from 'react';
 import {Form, Input, Button, Typography} from 'antd';
 import {useHistory} from 'react-router-dom';
 import {useMixpanel} from 'react-mixpanel-browser';
+import Countly from 'countly-sdk-web';
 import {AuthContext} from '../../auth/Authentication';
+import {useCountly} from '../../Count.ly/contexts/countly';
 
 
 const layout = {
@@ -13,10 +15,12 @@ const layout = {
 export const Login: React.FC = () => {
   const history = useHistory();
   const mixpanel = useMixpanel();
+  const countly = useCountly() || Countly;
   const {setAuthState} = useContext(AuthContext);
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Log In'});
+    mixpanel.track('Viewed Log In');
+    countly.q.push(['Viewed Login']);
   }, [mixpanel]);
 
   // The type that is returned by these functions from antd's library is not

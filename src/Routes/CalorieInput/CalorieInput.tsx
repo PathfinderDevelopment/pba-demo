@@ -8,7 +8,7 @@ export const CalorieInput: React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Calorie Input'});
+    mixpanel.track('Viewed Calorie Input Screen');
   }, [mixpanel]);
 
   const onFinish = (values: any) => {

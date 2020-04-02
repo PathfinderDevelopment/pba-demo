@@ -26,7 +26,7 @@ export const InsulinDosage:React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Insulin Dosage'});
+    mixpanel.track('Viewed Insulin Dosage Screen');
   }, [mixpanel]);
 
   const onFinish = (values: any) => {

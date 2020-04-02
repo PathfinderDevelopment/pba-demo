@@ -8,7 +8,7 @@ export const Feedback: React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Feedback Form'});
+    mixpanel.track('Viewed Feedback Form');
   }, [mixpanel]);
 
   const onFinish = (values: any) => {

@@ -8,7 +8,7 @@ export const Pairing: React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Pairing'});
+    mixpanel.track('Viewed Pairing Screen');
   }, [mixpanel]);
 
   const onFinish = (values: any) => {

@@ -15,7 +15,7 @@ export const Report:React.FC = () => {
   const mixpanel = useMixpanel();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Report'});
+    mixpanel.track('Viewed Report Screen');
   }, [mixpanel]);
 
   const shareData = ():void => {
