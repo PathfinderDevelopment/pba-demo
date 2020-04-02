@@ -24,6 +24,7 @@ export const Container = styled.div`
 `;
 
 export const StyledCardTitle = styled.h1`
+  font-size: 5rem;
   margin-bottom: 0px;
   color:white;
 `;

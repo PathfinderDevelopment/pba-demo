@@ -27,6 +27,7 @@ export const Report:React.FC = () => {
     {time: '11am', d: 180},
     {time: '12pm', d: 120},
     {time: '1pm', d: 80},
+    {time: '2pm', d: 120},
   ];
 
   return (
