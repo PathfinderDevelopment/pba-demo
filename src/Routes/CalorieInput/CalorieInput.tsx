@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {Form, Input, Button, Typography} from 'antd';
 import {useHistory} from 'react-router-dom';
 import {useMixpanel} from 'react-mixpanel-browser';
+import {useCountly} from '../../Count.ly';
 
 export const CalorieInput: React.FC = () => {
   const history = useHistory();
   const mixpanel = useMixpanel();
+  const countly: any = useCountly();
 
   useEffect(() => {
     mixpanel.track('Viewed Calorie Input Screen');
-  }, [mixpanel]);
+    countly.q.push(['add_event', {
+      'key': 'Viewed Calorie Input Screen',
+    }]);
+  }, [mixpanel, countly]);
 
   const onFinish = (values: any) => {
     console.log('Success:', values);

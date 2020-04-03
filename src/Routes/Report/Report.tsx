@@ -9,14 +9,19 @@ import {
   YAxis,
   ResponsiveContainer} from 'recharts';
 import {useMixpanel} from 'react-mixpanel-browser';
+import {useCountly} from '../../Count.ly';
 
 export const Report:React.FC = () => {
   const history = useHistory();
-  const mixpanel = useMixpanel();
+  const mixpanel:any = useMixpanel();
+  const countly: any = useCountly();
 
   useEffect(() => {
     mixpanel.track('Viewed Report Screen');
-  }, [mixpanel]);
+    countly.q.push(['add_event', {
+      'key': 'Viewed Report Screen',
+    }]);
+  }, [mixpanel, countly]);
 
   const shareData = ():void => {
     history.push('/sharedata');

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Route} from 'react-router';
 import {Home} from './Routes/Home/Home';
 import {Pairing} from './Routes/Pairing/Pairing';
@@ -36,7 +36,14 @@ const StyledContainer = styled.div`
 
 export const App: React.FC = () => {
   const [authState, setAuthState] = useState('');
+  const [glucoseLevel, setGlucoseLevel] = useState(120);
   const value = {authState, setAuthState};
+
+  useEffect(() => {
+    const min = Math.ceil(60);
+    const max = Math.floor(180);
+    setGlucoseLevel(Math.floor(Math.random() * (max-min)) + min);
+  }, []);
 
   return (
     <AuthContext.Provider value={value}>
@@ -76,7 +83,9 @@ export const App: React.FC = () => {
                   <AuthHOC>
 
                     <Route exact path='/pairdevice' component={Pairing} />
-                    <Route exact path='/home' component={Home} />
+                    <Route exact path='/home'>
+                      <Home glucoseLevel={glucoseLevel} />
+                    </Route>
                     <Route exact path='/report' component={Report} />
                     <Route exact path='/sharedata' component={EmailShare} />
                     <Route exact path='/dosage' component={InsulinDosage} />

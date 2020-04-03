@@ -1,15 +1,20 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {Form, Typography, Button, Input} from 'antd';
 import {useHistory} from 'react-router';
 import {useMixpanel} from 'react-mixpanel-browser';
+import {useCountly} from '../../../Count.ly';
 
 export const EmailShare:React.FC = () => {
   const history = useHistory();
   const mixpanel = useMixpanel();
+  const countly: any = useCountly();
 
   useEffect(() => {
     mixpanel.track('Viewed Email Data Screen');
-  }, [mixpanel]);
+    countly.q.push(['add_event', {
+      'key': 'Viewed Email Data Screen',
+    }]);
+  }, [mixpanel, countly]);
 
   const onFinish = (values: any) => {
     history.push('/success?of=share');

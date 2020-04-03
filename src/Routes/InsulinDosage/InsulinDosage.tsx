@@ -6,6 +6,7 @@ import {Typography, Form, Button, Input} from 'antd';
 import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
 import {useMixpanel} from 'react-mixpanel-browser';
+import { useCountly } from '../../Count.ly';
 
 const InsulinDosageSuggestion = styled.div`
   background-color: #2A6891;
@@ -23,15 +24,22 @@ const StyledFormItem = styled(Form.Item)`
 
 export const InsulinDosage:React.FC = () => {
   const history = useHistory();
-  const mixpanel = useMixpanel();
+  const mixpanel: any = useMixpanel();
+  const countly: any = useCountly();
 
   useEffect(() => {
-    mixpanel.track('Viewed Insulin Dosage Screen');
-  }, [mixpanel]);
+    mixpanel.track('Viewed Dosage Recommendation');
+    countly.q.push(['add_event', {
+      'key': 'Viewed Dosage Recommendation',
+    }]);
+  }, [mixpanel, countly]);
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
-    // TODO: Track feedback input event
+    mixpanel.track('Input Actual Dosage', {
+      usedDosageRecommendation: values.insulin === 3.2,
+    });
+
     history.push('success?of=dosage');
   };
 
@@ -56,7 +64,7 @@ export const InsulinDosage:React.FC = () => {
 
         <StyledFormItem
           label="Amount of insulin you plan to inject:"
-          name="tired"
+          name="insulin"
         >
           <Input placeholder='Insulin (U)' />
         </StyledFormItem>

@@ -2,7 +2,6 @@ import React, {useContext, useEffect} from 'react';
 import {Form, Input, Button, Typography} from 'antd';
 import {useHistory} from 'react-router-dom';
 import {useMixpanel} from 'react-mixpanel-browser';
-import Countly from 'countly-sdk-web';
 import {AuthContext} from '../../auth/Authentication';
 import {useCountly} from '../../Count.ly/contexts/countly';
 
@@ -14,14 +13,16 @@ const layout = {
 
 export const Login: React.FC = () => {
   const history = useHistory();
-  const mixpanel = useMixpanel();
-  const countly = useCountly() || Countly;
+  const mixpanel: any = useMixpanel();
+  const countly: any = useCountly();
   const {setAuthState} = useContext(AuthContext);
 
   useEffect(() => {
     mixpanel.track('Viewed Log In');
-    countly.q.push(['Viewed Login']);
-  }, [mixpanel]);
+    countly.q.push(['add_event', {
+      'key': 'Viewed Log In',
+    }]);
+  }, [mixpanel, countly]);
 
   // The type that is returned by these functions from antd's library is not
   // importable, so I'm using the any type.
@@ -32,6 +33,9 @@ export const Login: React.FC = () => {
     mixpanel.people.set({'$first_name': values.username});
     mixpanel.identify();
     mixpanel.track('Log In');
+    countly.q.push(['add_event', {
+      'key': 'Log In',
+    }]);
   };
 
   const onFinishFailed = (errorInfo: any) => {
