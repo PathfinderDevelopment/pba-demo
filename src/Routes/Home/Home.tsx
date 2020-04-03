@@ -23,11 +23,12 @@ export const Home: React.FC<HomeProps> = ({glucoseLevel}) => {
   const countly: any = useCountly();
 
   useEffect(() => {
+    console.log(glucoseLevel);
     mixpanel.track('Viewed Blood Glucose Level', {
-      currentGlucoseReading: {glucoseLevel},
+      'currentGlucoseReading': glucoseLevel,
     });
     mixpanel.register({
-      lastReadGlucoseLevel: {glucoseLevel},
+      'lastReadGlucoseLevel': glucoseLevel,
     });
     countly.q.push(['add_event', {
       'key': 'Viewed Blood Glucose Level',
