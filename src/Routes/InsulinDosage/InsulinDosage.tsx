@@ -37,7 +37,7 @@ export const InsulinDosage:React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
     mixpanel.track('Input Actual Dosage', {
-      usedDosageRecommendation: values.insulin === 3.2,
+      usedDosageRecommendation: values.insulin === '3.2',
     });
 
     history.push('success?of=dosage');
