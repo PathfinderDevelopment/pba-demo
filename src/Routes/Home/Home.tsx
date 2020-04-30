@@ -12,13 +12,28 @@ import {
 import {Link} from 'react-router-dom';
 import {BellFilled} from '@ant-design/icons';
 import {useMixpanel} from 'react-mixpanel-browser';
+import {useCountly} from '../../Count.ly';
 
-export const Home: React.FC = () => {
-  const mixpanel = useMixpanel();
+type HomeProps = {
+  glucoseLevel: number
+}
+
+export const Home: React.FC<HomeProps> = ({glucoseLevel}) => {
+  const mixpanel: any = useMixpanel();
+  const countly: any = useCountly();
 
   useEffect(() => {
-    mixpanel.track('Page View', {pageName: 'Home'});
-  }, [mixpanel]);
+    console.log(glucoseLevel);
+    mixpanel.track('Viewed Blood Glucose Level', {
+      'currentGlucoseReading': glucoseLevel,
+    });
+    mixpanel.register({
+      'lastReadGlucoseLevel': glucoseLevel,
+    });
+    countly.q.push(['add_event', {
+      'key': 'Viewed Blood Glucose Level',
+    }]);
+  }, [mixpanel, countly, glucoseLevel]);
 
   return (
     <Fragment>
@@ -31,7 +46,7 @@ export const Home: React.FC = () => {
           </AlertNotification>
         </Link>
         <StyledCaretUpFilled />
-        <StyledCardTitle>120</StyledCardTitle>
+        <StyledCardTitle>{glucoseLevel}</StyledCardTitle>
         <StyledCardSubtitle>mg/dL</StyledCardSubtitle>
       </StyledGlucoseLevelContainer>
 

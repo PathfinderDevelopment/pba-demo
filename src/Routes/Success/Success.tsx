@@ -5,6 +5,7 @@ import {Typography, Button} from 'antd';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import {useMixpanel} from 'react-mixpanel-browser';
+import { useCountly } from '../../Count.ly';
 
 const ButtonsContainer = styled.div`
   display: flex;
@@ -17,6 +18,7 @@ const useQuery = () => {
 
 export const Success:React.FC = () => {
   const mixpanel = useMixpanel();
+  const countly: any = useCountly();
   const query = useQuery();
   let messageText = '';
   let hideGoBack = false;
@@ -25,23 +27,36 @@ export const Success:React.FC = () => {
     case 'share':
       messageText = 'Your data has been shared.';
       mixpanel.track('Shared Report');
+      countly.q.push(['add_event', {
+        'key': 'Share Report',
+      }]);
       break;
     case 'calorieEntry':
       messageText = 'Your calories have been submitted.';
-      mixpanel.track('Inputed Calories');
+      mixpanel.track('Submit Calories');
+      countly.q.push(['add_event', {
+        'key': 'Submit Calories',
+      }]);
       break;
     case 'feedback':
       messageText = 'Your feedback has been submitted.';
-      mixpanel.track('Completed Feedback form');
+      countly.q.push(['add_event', {
+        'key': 'Submit Feedback Form',
+      }]);
       break;
     case 'pairing':
       messageText = 'Your device is paired.';
       mixpanel.track('Paired Device');
+      countly.q.push(['add_event', {
+        'key': 'Paired Device',
+      }]);
       hideGoBack = true;
       break;
     case 'dosage':
       messageText = 'Your Actual Insulin Dosage has been saved';
-      mixpanel.track('Input Actual Dosage');
+      countly.q.push(['add_event', {
+        'key': 'Submit Actual Dosage',
+      }]);
       break;
     default:
       messageText = 'We\'re not sure what you did.';

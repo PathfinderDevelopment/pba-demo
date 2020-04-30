@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Route} from 'react-router';
 import {Home} from './Routes/Home/Home';
 import {Pairing} from './Routes/Pairing/Pairing';
@@ -19,6 +19,7 @@ import {BackButton} from './Components/BackButton/BackButton';
 import {AuthHOC} from './auth/AuthHOC';
 import {MixpanelProvider} from 'react-mixpanel-browser';
 import {AuthContext} from '../src/auth/Authentication';
+import CountlyProvider from './Count.ly/CountlyProvider';
 
 const InnerContainer = styled.div`
   display:table-cell;
@@ -35,59 +36,71 @@ const StyledContainer = styled.div`
 
 export const App: React.FC = () => {
   const [authState, setAuthState] = useState('');
+  const [glucoseLevel, setGlucoseLevel] = useState(120);
   const value = {authState, setAuthState};
+
+  useEffect(() => {
+    const min = Math.ceil(60);
+    const max = Math.floor(180);
+    setGlucoseLevel(Math.floor(Math.random() * (max-min)) + min);
+  }, []);
 
   return (
     <AuthContext.Provider value={value}>
-      <MixpanelProvider>
-        <HashRouter>
-          <StyledContainer>
-            <InnerContainer>
-              <Container>
-                <div style={{display: 'flex', alignItems: 'center'}}>
+      <CountlyProvider>
+        <MixpanelProvider>
+          <HashRouter>
+            <StyledContainer>
+              <InnerContainer>
+                <Container>
+                  <div style={{display: 'flex', alignItems: 'center'}}>
+                    <AuthHOC>
+                      <Route exact path={[
+                        '/report',
+                        '/sharedata',
+                        '/dosage',
+                        '/feedback',
+                        '/calorieinput',
+                        '/alerts']} component={BackButton} />
+                    </AuthHOC>
+
+                    <img src={Logo} style={{margin: '0 auto 32px'}}
+                      alt='Orthogonal Logo' />
+                    <AuthHOC>
+                      <Route path={[
+                        '/home',
+                        '/report',
+                        '/sharedata',
+                        '/dosage',
+                        '/feedback',
+                        '/calorieinput',
+                        '/alerts',
+                        '/success']} component={NavMenu} />
+                    </AuthHOC>
+                  </div>
+
+                  <Route exact path='/' component={Login} />
                   <AuthHOC>
-                    <Route exact path={[
-                      '/report',
-                      '/sharedata',
-                      '/dosage',
-                      '/feedback',
-                      '/calorieinput',
-                      '/alerts']} component={BackButton} />
+
+                    <Route exact path='/pairdevice' component={Pairing} />
+                    <Route exact path='/home'>
+                      <Home glucoseLevel={glucoseLevel} />
+                    </Route>
+                    <Route exact path='/report' component={Report} />
+                    <Route exact path='/sharedata' component={EmailShare} />
+                    <Route exact path='/dosage' component={InsulinDosage} />
+                    <Route exact path='/feedback' component={Feedback} />
+                    <Route exact path='/calorieinput' component={CalorieInput} />
+                    <Route exact path='/alerts' component={Alerts} />
+                    <Route exact path='/success' component={Success} />
                   </AuthHOC>
+                </Container>
+              </InnerContainer>
+            </StyledContainer>
+          </HashRouter>
+        </MixpanelProvider>
+      </CountlyProvider>
 
-                  <img src={Logo} style={{margin: '0 auto 32px'}}
-                    alt='Orthogonal Logo' />
-                  <AuthHOC>
-                    <Route path={[
-                      '/home',
-                      '/report',
-                      '/sharedata',
-                      '/dosage',
-                      '/feedback',
-                      '/calorieinput',
-                      '/alerts',
-                      '/success']} component={NavMenu} />
-                  </AuthHOC>
-                </div>
-
-                <Route exact path='/' component={Login} />
-                <AuthHOC>
-
-                  <Route exact path='/pairdevice' component={Pairing} />
-                  <Route exact path='/home' component={Home} />
-                  <Route exact path='/report' component={Report} />
-                  <Route exact path='/sharedata' component={EmailShare} />
-                  <Route exact path='/dosage' component={InsulinDosage} />
-                  <Route exact path='/feedback' component={Feedback} />
-                  <Route exact path='/calorieinput' component={CalorieInput} />
-                  <Route exact path='/alerts' component={Alerts} />
-                  <Route exact path='/success' component={Success} />
-                </AuthHOC>
-              </Container>
-            </InnerContainer>
-          </StyledContainer>
-        </HashRouter>
-      </MixpanelProvider>
     </AuthContext.Provider>
   );
 };
