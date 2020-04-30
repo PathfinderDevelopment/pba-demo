@@ -39,7 +39,7 @@ export const Feedback: React.FC = () => {
       onFinishFailed={onFinishFailed}
       layout='vertical'
     >
-      <Typography.Title level={2}>Input Calories</Typography.Title>
+      <Typography.Title level={2}>Provide Feedback</Typography.Title>
       <Form.Item
         label="Do you feel tired?"
         name="tired"
