@@ -8,7 +8,11 @@ import {BellFilled} from '@ant-design/icons';
 import {useMixpanel} from 'react-mixpanel-browser';
 import {useCountly} from '../../../Count.ly';
 
-export const AlertItem = () => {
+interface IAlertItemProps {
+  text: string
+};
+
+export const AlertItem:React.FC<IAlertItemProps> = ({text}) => {
   const mixpanel = useMixpanel();
   const countly: any = useCountly();
   const [notificationRead, setNotficationRead] = useState<boolean>(false);
@@ -27,8 +31,7 @@ export const AlertItem = () => {
         <BellFilled />
       </StyledAlertIcon>
       <AlertText>
-        Your blood glucose reading at 8:34am
-        on 4-19-20 indicates a LOW blood glucose level.
+        {text}
       </AlertText>
       <StyledCheckBox>
         <input type='checkbox' checked={notificationRead}/>

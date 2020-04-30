@@ -25,8 +25,8 @@ export const Alerts: React.FC = () => {
     <div>
       <Typography.Title level={2}>Alerts</Typography.Title>
       <Header>Read?</Header>
-      <AlertItem />
-      <AlertItem />
+      <AlertItem text="Your blood glucose reading at 8:34am on 3-19-20 indicates a LOW blood glucose level." />
+      <AlertItem text="Your blood glucose reading at 5:12pm on 3-18-20 indicates a HIGH blood glucose level." />
     </div>
   );
 };
